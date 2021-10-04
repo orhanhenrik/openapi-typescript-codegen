@@ -1,3 +1,5 @@
+import camelCase from 'camelcase';
+
 export function escapeName(value: string): string {
     if (value) {
         const validName = /^[a-zA-Z_$][\w$]+$/g.test(value);
@@ -5,5 +7,5 @@ export function escapeName(value: string): string {
             return `'${value}'`;
         }
     }
-    return value;
+    return camelCase(value);
 }

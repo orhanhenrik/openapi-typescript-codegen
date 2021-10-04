@@ -5,7 +5,7 @@ async function getResponseBody(response: Response): Promise<any> {
             if (contentType) {
                 const isJSON = contentType.toLowerCase().startsWith('application/json');
                 if (isJSON) {
-                    return await response.json();
+                    return humps.camelizeKeys(await response.json());
                 } else {
                     return await response.text();
                 }
